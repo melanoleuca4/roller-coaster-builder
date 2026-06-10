@@ -3,7 +3,7 @@ import * as THREE from "three";
 
 export function Ground() {
   const basePath = import.meta.env.BASE_URL || '/';
-  const texture = useTexture(`${basePath}textures/asphalt.png`);
+  const texture = useTexture(`${basePath}textures/snowtexture.png`);
   
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(200, 200);
