@@ -22,12 +22,12 @@ export function Sky() {
   
   const stars = useMemo(() => {
     const s: { x: number; y: number; z: number; size: number }[] = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 400; i++) {
       s.push({
-        x: (i * 17 % 500) - 250,
-        y: 60 + (i * 13 % 50),
-        z: (i * 23 % 500) - 250,
-        size: 0.15 + (i % 3) * 0.05
+        x: (i * 17 % 700) - 250,
+        y: 60 + (i * 13 % 80),
+        z: (i * 23 % 800) - 250,
+        size: 0.15 + (i % 5) * 0.08
       });
     }
     return s;
@@ -47,8 +47,8 @@ export function Sky() {
   if (isNightMode) {
     return (
       <>
-        <color attach="background" args={["#101025"]} />
-        <fog attach="fog" args={["#101025", 150, 500]} />
+        <color attach="background" args={["#081020"]} />
+        <fog attach="fog" args={["#081020", 25, 150]} />
         
         <ambientLight intensity={0.4} color="#6688cc" />
         <directionalLight position={[50, 50, 25]} intensity={0.5} color="#8899bb" />
@@ -61,6 +61,13 @@ export function Sky() {
           <sphereGeometry args={[6, 32, 32]} />
           <meshBasicMaterial color="#FFFFEE" />
         </mesh>
+
+        <pointLight
+           position={[-60, 45, -80]}
+           intensity={1.5}
+           color="#BFD8FF"
+           distance={100}
+        />
         
         {stars.map((star, i) => (
           <mesh key={i} position={[star.x, star.y, star.z]}>
