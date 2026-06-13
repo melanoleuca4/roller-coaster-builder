@@ -22,10 +22,10 @@ export function Sky() {
   
   const stars = useMemo(() => {
     const s: { x: number; y: number; z: number; size: number }[] = [];
-    for (let i = 0; i < 400; i++) {
+    for (let i = 0; i < 600; i++) {
       s.push({
         x: (i * 17 % 700) - 250,
-        y: 60 + (i * 13 % 80),
+        y: 30 + (i * 13 % 80),
         z: (i * 23 % 800) - 250,
         size: 0.15 + (i % 5) * 0.08
       });
